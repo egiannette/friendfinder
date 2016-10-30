@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/egiannette/friendfinder/issues"
   },
-  "homepage": "https://github.com/egiannette/friendfinder#readme"
+  "homepage": "https://github.com/egiannette/friendfinder#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "path": "^0.12.7"
+  }
 }
