@@ -65,3 +65,13 @@ var friends = [{
 	4
 	]
 }];
+
+var userResults = [];
+for(var i = 0; i < friends.length; i++){
+	userResults.push(friends[i].scores);
+}
+
+//For testing - printing out the userResults array
+for(var x = 0; x < userResults.length; x++){
+	console.log(userResults[x]);
+}
