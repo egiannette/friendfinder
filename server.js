@@ -21,11 +21,11 @@ app.post('/api/new', function (req, res) {
 	var friends = req.body;
 	friends.routeName = friends.name.replace(/\s+/g, '').toLowerCase();
 
-	console.log(newcharacter);
+	console.log(friends);
 
-	characters.push(newcharacter);
+	characters.push(friends);
 
-	res.json(newcharacter);
+	res.json(friends);
 });
 // Starts the server to begin listening
 // =============================================================

@@ -71,7 +71,47 @@ for(var i = 0; i < friends.length; i++){
 	userResults.push(friends[i].scores);
 }
 
+var currentUsersScores = [5, 5, 5, 5, 5, 3, 4, 4, 5, 4];
+
+mostCompatible();
+
+function mostCompatible(){
+	var mostCompatibleSoFar = -1;
+	var totalDifference = 0;
+	var mostCompatibleTotalDifference = -1;
+	//Go through all of the users
+	for(var y = 0; y < userResults.length; y++){
+		//Compare each score for all of the users with the current user
+		for(var i = 0; i < userResults.length; i++){
+			if(currentUsersScores[i] != userResults[y][i]){
+				totalDifference += Math.abs(currentUsersScores[i] - userResults[y][i]);
+			}		
+		}
+		console.log("User: " + friends[y].name + " compatibality score " + totalDifference);
+		// See if the current difference is less than the previous ones
+		// We only need to keep track of the user most compatible with the current one
+
+		if( (mostCompatibleTotalDifference < 0) || ( (mostCompatibleTotalDifference >= 0) && (mostCompatibleTotalDifference > totalDifference) ) ){
+			mostCompatibleTotalDifference = totalDifference;
+			mostCompatibleSoFar = y;
+		}
+		// reset the totalDifference for the next user comparison
+		totalDifference = 0;
+	}	
+
+	console.log("Most compatible is: " + friends[mostCompatibleSoFar].name);
+}
+/*
 //For testing - printing out the userResults array
 for(var x = 0; x < userResults.length; x++){
 	console.log(userResults[x]);
 }
+*/
+$('#submit').on('click', function(){
+	var newFriend = {
+		"routeName": "newFriend",
+		"name": $("#name").val().trim(),
+		"picture":$('#photo').val().trim(),
+		"scores":[]
+	}
+})
